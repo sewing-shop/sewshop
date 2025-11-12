@@ -465,63 +465,97 @@
     </div>
   </section>
 
-  <!-- Contacts & Form -->
-  <section id="contacts" class="contacts">
-    <div class="container">
-      <h2 class="section-title">Свяжитесь с нами напрямую</h2>
-      <div class="contact-grid">
-        <div class="contact-card">
-          <h3>Контакты</h3>
-          <div class="contact-item">
-            <span class="contact-icon">📞</span>
-            <div><strong>Телефон 1:</strong><br><span id="phone1">[ваш номер]</span></div>
-          </div>
-          <div class="contact-item">
-            <span class="contact-icon">📱</span>
-            <div><strong>Телефон 2 / WhatsApp:</strong><br><span id="phone2">[ваш номер]</span></div>
-          </div>
-          <div class="contact-item">
-            <span class="contact-icon">📍</span>
-            <div><strong>Адрес:</strong><br><span id="address">[ваш адрес, г. Омск]</span></div>
-          </div>
-          <div class="contact-item">
-            <span class="contact-icon">🕒</span>
-            <div><strong>Часы работы:</strong><br>пн–пт, 9:00–18:00</div>
-          </div>
-          <!-- Social links placeholder -->
-          <div class="social-links">
-            <a href="#" class="social-link" id="social1">VK</a>
-            <a href="#" class="social-link" id="social2">TG</a>
-            <a href="#" class="social-link" id="social3">IG</a>
-          </div>
+ <!-- Contacts & Form + Map -->
+<section id="contacts" class="contacts">
+  <div class="container">
+    <h2 class="section-title">Свяжитесь с нами напрямую</h2>
+    <div class="contact-grid">
+      <div class="contact-card">
+        <h3>Контакты</h3>
+        <div class="contact-item">
+          <span class="contact-icon">📞</span>
+          <div><strong>Телефон 1:</strong><br><span id="phone1">[ваш номер]</span></div>
         </div>
-
-        <div class="contact-card">
-          <h3>Оставить заявку</h3>
-          <!-- ⚠️ ЗАМЕНИТЕ ACTION НА СВОЙ FORMSPREE URL -->
-          <form action="https://formspree.io/f/manayzly" method="POST" id="contact-form">
-            <div class="form-group">
-              <label for="name">Имя *</label>
-              <input type="text" id="name" name="name" class="form-control" required>
-            </div>
-            <div class="form-group">
-              <label for="email">Email *</label>
-              <input type="email" id="email" name="email" class="form-control" required>
-            </div>
-            <div class="form-group">
-              <label for="phone">Телефон</label>
-              <input type="tel" id="phone" name="phone" class="form-control">
-            </div>
-            <div class="form-group">
-              <label for="project">Кратко о проекте *</label>
-              <textarea id="project" name="project" class="form-control" required placeholder="Например: запуск бренда уличной одежды, нужны 30 курток-бомберов"></textarea>
-            </div>
-            <button type="submit" class="btn" style="width: 100%;">Отправить заявку</button>
-          </form>
+        <div class="contact-item">
+          <span class="contact-icon">📱</span>
+          <div><strong>Телефон 2 / WhatsApp:</strong><br><span id="phone2">[ваш номер]</span></div>
+        </div>
+        <div class="contact-item">
+          <span class="contact-icon">📍</span>
+          <div><strong>Адрес:</strong><br><span id="address">[ваш адрес, г. Омск]</span></div>
+        </div>
+        <div class="contact-item">
+          <span class="contact-icon">🕒</span>
+          <div><strong>Часы работы:</strong><br>пн–пт, 9:00–18:00</div>
+        </div>
+        <!-- Social links placeholder -->
+        <div class="social-links">
+          <a href="#" class="social-link" id="social1">VK</a>
+          <a href="#" class="social-link" id="social2">TG</a>
+          <a href="#" class="social-link" id="social3">IG</a>
         </div>
       </div>
+
+      <div class="contact-card">
+        <h3>Оставить заявку</h3>
+        <!-- ⚠️ ЗАМЕНИТЕ ACTION НА СВОЙ FORMSPREE URL -->
+        <form action="https://formspree.io/f/manayzly" method="POST" id="contact-form">
+          <div class="form-group">
+            <label for="name">Имя *</label>
+            <input type="text" id="name" name="name" class="form-control" required>
+          </div>
+          <div class="form-group">
+            <label for="email">Email *</label>
+            <input type="email" id="email" name="email" class="form-control" required>
+          </div>
+          <div class="form-group">
+            <label for="phone">Телефон</label>
+            <input type="tel" id="phone" name="phone" class="form-control">
+          </div>
+          <div class="form-group">
+            <label for="project">Кратко о проекте *</label>
+            <textarea id="project" name="project" class="form-control" required placeholder="Например: запуск бренда уличной одежды, нужны 30 курток-бомберов"></textarea>
+          </div>
+          <button type="submit" class="btn" style="width: 100%;">Отправить заявку</button>
+        </form>
+      </div>
     </div>
-  </section>
+  </div>
+</section>
+
+<!-- Map Section -->
+<section style="padding: 0; background: #F9F8FD;">
+  <div class="container" style="padding: 0;">
+    <div id="ymap" style="width: 100%; height: 400px; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.06); margin-top: 20px;"></div>
+  </div>
+</section>
+
+<!-- Yandex Maps API -->
+<script src="https://api-maps.yandex.ru/2.1/?apikey=469ee1a8-4b7c-4219-8510-0c9eb3a819a0&lang=ru_RU" type="text/javascript"></script>
+<script type="text/javascript">
+  ymaps.ready(init);
+  function init() {
+    // ⚠️ ЗАМЕНИТЕ КООРДИНАТЫ НА ВАШИ И НАЗВАНИЕ МЕТКИ
+    var myMap = new ymaps.Map("ymap", {
+      center: [54.983040, 73.322498], // Омск, примерные координаты центра — ЗАМЕНИТЬ!
+      zoom: 14,
+      controls: ['zoomControl', 'fullscreenControl']
+    }, {
+      suppressMapOpenBlock: true
+    });
+
+    var myPlacemark = new ymaps.Placemark([54.983040, 73.322498], {
+      balloonContent: '<strong>Ателье «ШЛ»</strong><br>г. Омск, улица 70 лет Октября, 20/1, цокольный этаж, вход рядом с kids club',
+      iconCaption: 'Ателье «ШЛ»'
+    }, {
+      preset: 'islands#violetDotIconWithCaption',
+      iconColor: '#7E57C2'
+    });
+
+    myMap.geoObjects.add(myPlacemark);
+    myMap.behaviors.disable('scrollZoom'); // чтобы не мешало при скролле страницы
+  }
+</script>
 
   <!-- Footer -->
   <footer>
@@ -603,4 +637,5 @@
     });
   </script>
 </body>
+
 </html>
