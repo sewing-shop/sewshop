@@ -553,34 +553,9 @@
     });
 
     myMap.geoObjects.add(myPlacemark);
-   <script type="text/javascript">
-  ymaps.ready(init);
-  function init() {
-    var myMap = new ymaps.Map("ymap", {
-      center: [54.989193, 73.368212],
-      zoom: 14,
-      controls: ['zoomControl', 'fullscreenControl']
-    }, {
-      suppressMapOpenBlock: true
-    });
-
-    var myPlacemark = new ymaps.Placemark([54.989193, 73.368212], {
-      balloonContent: '<strong>Ателье «ШЛ»</strong><br>г. Омск, [ваш адрес]',
-      iconCaption: 'Ателье «ШЛ»'
-    }, {
-      preset: 'islands#violetDotIconWithCaption',
-      iconColor: '#7E57C2'
-    });
-
-    myMap.geoObjects.add(myPlacemark);
-
-    // 🔑 Включаем scrollZoom, НО только с зажатой клавишей Ctrl
-    myMap.behaviors.set('scrollZoom', {
-      adjustAuto: false,
-      allowWheelScroll: function (e) {
-        return e.originalEvent.ctrlKey; // разрешаем только при Ctrl
-      }
-    });
+myMap.behaviors.set('scrollZoom', {
+  allowWheelScroll: e => e.originalEvent.ctrlKey
+});
   }
 </script>
   }
@@ -668,4 +643,5 @@
 </body>
 
 </html>
+
 
